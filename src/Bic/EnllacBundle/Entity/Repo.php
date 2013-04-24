@@ -35,6 +35,32 @@ class Repo
      */
     private $descrip;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Link", inversedBy="links")
+     * @ORM\JoinTable(name="repos_links",
+     *      joinColumns={@ORM\JoinColumn(name="repo_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="link_id", referencedColumnName="id")}
+     *      )
+     **/
+    protected $links;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="users")
+     **/
+    private $users;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="users_fl")
+     **/
+    private $users_fl;
+
+    public function __construct(){
+        $this->links = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users_fl = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+
 
     /**
      * Get id

@@ -19,12 +19,6 @@ class User extends BaseUser
      */
     protected $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
-
     /**
      * @ORM\Column(type="text", name="descrip", nullable=true)
      */
@@ -41,6 +35,30 @@ class User extends BaseUser
      * )
      */
     protected $image = null;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Repo", inversedBy="repos")
+     * @ORM\JoinTable(name="repos_users",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="repo_id", referencedColumnName="id")}
+     *      )
+     **/
+    protected $repos;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Repo", inversedBy="repos_fl")
+     * @ORM\JoinTable(name="repos_fl_users",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="repo_id", referencedColumnName="id")}
+     *      )
+     **/
+    protected $repos_fl;
+
+    public function __construct(){
+        $this->repos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->repos_fl = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+    }
 
 
     public function getImageAbsolutePath()

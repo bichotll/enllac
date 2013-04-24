@@ -49,8 +49,16 @@ class Link
      */
     private $iconUrl;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Repo", mappedBy="repos")
+     **/
+    private $repos;
 
-    
+    public function __construct(){
+        $this->repos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
 
 
     /**
