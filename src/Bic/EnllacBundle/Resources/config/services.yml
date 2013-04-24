@@ -2,6 +2,17 @@ parameters:
 #    bic_enllac.example.class: Bic\EnllacBundle\Example
 
 services:
+    bic_user.registration.form.type:
+        class: Bic\EnllacBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: bic_user_registration }
+
+    bic_user.form.handler.registration: 
+        class: Bic\EnllacBundle\Form\Handler\RegistrationFormHandler 
+        arguments: ["@fos_user.registration.form", "@request", "@fos_user.user_manager", "@fos_user.mailer", , "@fos_user.util.token_generator"]
+        scope: request 
+        public: false
 #    bic_enllac.example:
 #        class: %bic_enllac.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

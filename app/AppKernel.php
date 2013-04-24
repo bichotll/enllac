@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Bic\EnllacBundle\BicEnllacBundle(),
 
-            new Bc\Bundle\BootstrapBundle\BcBootstrapBundle()
+            new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

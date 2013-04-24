@@ -4,10 +4,27 @@ namespace Bic\EnllacBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * @Route("/", name="bic_enllac_home")
+     * @Template()
+     */
+    public function indexAction()
     {
-        return $this->render('BicEnllacBundle:Default:index.html.twig', array('name' => $name));
+    	$name = 'world';
+    	return array('name' => $name);
+    }
+
+    /**
+     * @Route("/hello/{name}", name="_demo_hello")
+     * @Template()
+     */
+    public function helloAction($name)
+    {
+        return array('name' => $name);
     }
 }

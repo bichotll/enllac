@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -72,8 +72,7 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Bic\EnllacBundle\Entity\User
-
-#tw bootstrap
-bc_bootstrap:
-    assets_dir:  %kernel.root_dir%/../vendor/twitter/bootstrap
-    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js
+    registration:
+        form:
+            type: bic_user_registration
+            handler: bic_user.form.handler.registration
