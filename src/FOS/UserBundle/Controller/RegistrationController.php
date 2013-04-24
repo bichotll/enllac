@@ -55,6 +55,15 @@ class RegistrationController extends ContainerAware
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
+                //upload img
+                $files=$request->files->get($form->getName());
+                $uploadedFile = $files['image'];            
+                if (isset($uploadedFile)){
+                    $file_name = $user->getUsername().'.'.$uploadedFile->guessExtension();
+                    $form['image']->getData()->move($user->getImageUploadRootDir(), $file_name);
+                    $user->setImage($file_name);
+                }
+
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
