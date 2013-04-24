@@ -34,9 +34,9 @@ class User extends BaseUser
      * @ORM\Column(type="string", name="image", length=100, unique=false, nullable=true)
      *
      * @Assert\Image(
-     *     minWidth = 200,
+     *     minWidth = 100,
      *     maxWidth = 400,
-     *     minHeight = 200,
+     *     minHeight = 100,
      *     maxHeight = 400
      * )
      */
