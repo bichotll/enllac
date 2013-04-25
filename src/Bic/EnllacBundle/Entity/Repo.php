@@ -61,14 +61,14 @@ class Repo
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="users_fl")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="usersFl")
      **/
-    private $users_fl;
+    private $usersFl;
 
     public function __construct(){
         $this->links = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->users_fl = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->usersFl = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -216,25 +216,25 @@ class Repo
     }
 
     /**
-     * Gets the value of users_fl.
+     * Gets the value of usersFl.
      *
      * @return mixed
      */
-    public function getUsers_fl()
+    public function getUsersFl()
     {
-        return $this->users_fl;
+        return $this->usersFl;
     }
 
     /**
-     * Sets the value of users_fl.
+     * Sets the value of usersFl.
      *
-     * @param mixed $users_fl the users_fl
+     * @param mixed $usersFl the usersFl
      *
      * @return self
      */
-    public function setUsers_fl(ArrayCollection $users_fl)
+    public function setUsersFl(ArrayCollection $usersFl)
     {
-        $this->users_fl = $users_fl;
+        $this->usersFl = $usersFl;
 
         return $this;
     }
