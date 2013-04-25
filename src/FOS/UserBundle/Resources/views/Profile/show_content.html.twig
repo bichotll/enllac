@@ -1,7 +1,19 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-    <img src="{{ app.request.getBaseURL() }}/../{{ user.getImageWebPath }}">
+
+<div class="row-fluid">
+	<div class="span3">
+		<div class="fos_user_user_show">
+		    <img src="{{ app.request.getBaseURL() }}/../{{ user.getImageWebPath }}">
+		    <h4>{{ user.username }}</h4>
+		    <h5>{{ user.email }}</h5>
+		    <p>{{ user.descrip }}</p>
+		</div>
+	</div>
+	<div class="span6">
+		<p>test</p>
+	</div>
+	<div class="span3">
+		<p>test</p>
+	</div>
 </div>

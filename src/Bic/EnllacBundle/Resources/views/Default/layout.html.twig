@@ -2,6 +2,14 @@
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('bundles/bicenllac/css/enllac.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/bicenllac/css/enllac.css') }}">
+
+<link rel="stylesheet" href="{{ asset('bundles/bicenllac/css/font-awesome.min.css') }}">
+<!--[if IE 7]>
+	<link rel="stylesheet" href="{{ asset('bundles/bicenllac/css/font-awesome-ie7.min.css') }}">
+<![endif]-->
+
+
 {% endblock %}
 
 {% block body %}
@@ -9,11 +17,6 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
 			<a class="brand" href="{{ path('bic_enllac_home') }}">Enllaç</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
@@ -44,6 +47,39 @@
 				</ul>
 				{% if app.user %}
 				<ul class="nav pull-right" >
+					<li>
+						<a>&nbsp;</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-book icon-large"></i>&nbsp;<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="{{ path('fos_user_profile_show') }}">List repos</a></li>
+							<li><a href="{{ path('fos_user_profile_show') }}">New repo</a></li>
+						</ul>
+					</li>
+					<!--li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-tags icon-large"></i>&nbsp;<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="{{ path('fos_user_profile_show') }}">List</a></li>
+						</ul>
+					</li-->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-link icon-large"></i>&nbsp;<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="{{ path('fos_user_profile_show') }}">List links</a></li>
+							<li><a href="{{ path('fos_user_profile_show') }}">New Link</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a >&nbsp;</a>
+					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{ app.user.username }}</b> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -68,6 +104,9 @@
 				</ul>
 				{% else %}
 				<ul class="nav pull-right" >
+					<li>
+						<a href="{{ path('fos_user_security_login') }}"><i class="icon-search icon-large"></i></a>
+					</li>
 					<li>
 						<a href="{{ path('fos_user_security_login') }}">Login</a>
 					</li>
