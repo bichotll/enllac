@@ -3,5 +3,5 @@ bic_enllac_homepage:
     defaults: { _controller: BicEnllacBundle:Default:index }
 
 bic_enllac_annotation_import:
-    resource: "@BicEnllacBundle/Controller/DefaultController.php"
+    resource: "@BicEnllacBundle/Controller"
     type:    annotation

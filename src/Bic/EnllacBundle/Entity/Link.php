@@ -4,6 +4,8 @@ namespace Bic\EnllacBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Link
  *
@@ -169,5 +171,67 @@ class Link
     public function getIconUrl()
     {
         return $this->iconUrl;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param integer $id the id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of repos.
+     *
+     * @return mixed
+     */
+    public function getRepos()
+    {
+        return $this->repos;
+    }
+
+    /**
+     * Sets the value of repos.
+     *
+     * @param mixed $repos the repos
+     *
+     * @return self
+     */
+    public function setRepos(ArrayCollection $repos)
+    {
+        $this->repos = $repos;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of tags.
+     *
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Sets the value of tags.
+     *
+     * @param mixed $tags the tags
+     *
+     * @return self
+     */
+    public function setTags(ArrayCollection $tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
     }
 }

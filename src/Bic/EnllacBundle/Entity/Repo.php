@@ -4,6 +4,8 @@ namespace Bic\EnllacBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Repo
  *
@@ -125,5 +127,115 @@ class Repo
     public function getDescrip()
     {
         return $this->descrip;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param integer $id the id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of links.
+     *
+     * @return mixed
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
+
+    /**
+     * Sets the value of links.
+     *
+     * @param mixed $links the links
+     *
+     * @return self
+     */
+    public function setLinks(ArrayCollection $links)
+    {
+        $this->links = $links;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of tags.
+     *
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Sets the value of tags.
+     *
+     * @param mixed $tags the tags
+     *
+     * @return self
+     */
+    public function setTags(ArrayCollection $tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of users.
+     *
+     * @return mixed
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Sets the value of users.
+     *
+     * @param mixed $users the users
+     *
+     * @return self
+     */
+    public function setUsers(ArrayCollection $users)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of users_fl.
+     *
+     * @return mixed
+     */
+    public function getUsers_fl()
+    {
+        return $this->users_fl;
+    }
+
+    /**
+     * Sets the value of users_fl.
+     *
+     * @param mixed $users_fl the users_fl
+     *
+     * @return self
+     */
+    public function setUsers_fl(ArrayCollection $users_fl)
+    {
+        $this->users_fl = $users_fl;
+
+        return $this;
     }
 }

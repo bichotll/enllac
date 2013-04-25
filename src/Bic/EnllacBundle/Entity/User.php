@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="enllac_users")
+ * @ORM\Table()
  */
 class User extends BaseUser
 {
