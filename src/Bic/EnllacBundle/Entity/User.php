@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="bic_user")
+ * @ORM\Table(name="enllac_users")
  */
 class User extends BaseUser
 {
@@ -53,6 +53,20 @@ class User extends BaseUser
      *      )
      **/
     protected $repos_fl;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="my_fl_users")
+     **/
+    private $users_fl_by;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="users_fl_by")
+     * @ORM\JoinTable(name="user_fl_user",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="friend_user_id", referencedColumnName="id")}
+     *      )
+     **/
+    private $my_fl_users;
 
     public function __construct(){
         $this->repos = new \Doctrine\Common\Collections\ArrayCollection();

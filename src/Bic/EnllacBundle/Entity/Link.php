@@ -58,6 +58,14 @@ class Link
         $this->repos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="tags")
+     * @ORM\JoinTable(name="links_tags",
+     *      joinColumns={@ORM\JoinColumn(name="link_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     *      )
+     **/
+    protected $tags;
 
 
 
