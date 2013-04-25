@@ -21,6 +21,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 /**
  * Controller managing the user profile
  *
@@ -29,20 +32,32 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 class ProfileController extends ContainerAware
 {
     /**
-     * Show the user
+     * @Route("/profile/{name}", name="fos_profile_show")
+     * @Route("/profile/")
      */
-    public function showAction()
+    public function showAction($name = null)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
+        if ( isset($name) ){
+            $user = $this->container->get('doctrine')
+            ->getRepository('BicEnllacBundle:User')
+            ->findOneByUsername($name);
         }
+        else{
+            $user = $this->container->get('security.context')->getToken()->getUser();
+            if (!is_object($user) || !$user instanceof UserInterface) {
+                throw new AccessDeniedException('This user does not have access to this section.');
+            }
+        }
+
+        /**/
+        //print_r($user);
 
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.'.$this->container->getParameter('fos_user.template.engine'), array('user' => $user));
     }
 
     /**
-     * Edit the user
+     * @Route("/profile/edit", name="fos_user_profile_edit")
+     * @Template()
      */
     public function editAction(Request $request)
     {

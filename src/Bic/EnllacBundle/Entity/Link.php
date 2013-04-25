@@ -52,7 +52,7 @@ class Link
     private $iconUrl;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Repo", mappedBy="repos")
+     * @ORM\ManyToMany(targetEntity="Repo", mappedBy="links")
      **/
     private $repos;
 

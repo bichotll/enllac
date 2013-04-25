@@ -72,7 +72,3 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Bic\EnllacBundle\Entity\User
-#    registration:
-#        form:
-#            type: bic_user_registration
-#            handler: bic_user.form.handler.registration
