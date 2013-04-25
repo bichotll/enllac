@@ -37,7 +37,7 @@ class User extends BaseUser
     protected $image = null;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Repo", inversedBy="repos")
+     * @ORM\ManyToMany(targetEntity="Repo", inversedBy="users")
      * @ORM\JoinTable(name="repos_users",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="repo_id", referencedColumnName="id")}
@@ -46,7 +46,7 @@ class User extends BaseUser
     protected $repos;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Repo", inversedBy="reposFl")
+     * @ORM\ManyToMany(targetEntity="Repo", inversedBy="usersFl")
      * @ORM\JoinTable(name="reposFl_users",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="repo_id", referencedColumnName="id")}

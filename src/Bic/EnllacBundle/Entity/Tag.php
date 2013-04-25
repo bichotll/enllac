@@ -31,12 +31,12 @@ class Tag
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Link", mappedBy="links")
+     * @ORM\ManyToMany(targetEntity="Link", mappedBy="tags")
      **/
     private $links;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Repo", mappedBy="repos")
+     * @ORM\ManyToMany(targetEntity="Repo", mappedBy="tags")
      **/
     private $repos;
 

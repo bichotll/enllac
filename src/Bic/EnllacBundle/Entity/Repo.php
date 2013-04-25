@@ -38,7 +38,7 @@ class Repo
     private $descrip;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Link", inversedBy="links")
+     * @ORM\ManyToMany(targetEntity="Link", inversedBy="repos")
      * @ORM\JoinTable(name="repos_links",
      *      joinColumns={@ORM\JoinColumn(name="repo_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="link_id", referencedColumnName="id")}
@@ -47,7 +47,7 @@ class Repo
     protected $links;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="tags")
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="repos")
      * @ORM\JoinTable(name="repos_tags",
      *      joinColumns={@ORM\JoinColumn(name="repo_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
@@ -56,12 +56,12 @@ class Repo
     protected $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="repos")
      **/
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="usersFl")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="reposFl")
      **/
     private $usersFl;
 
